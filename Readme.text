@@ -1,0 +1,4 @@
+npx playwright test     -Simple Run
+npx playwright show-report.  -HTML Report
+HIGHLIGHT=true npx playwright test -HIGHLIGHT Run
+allure serve allure-results   -allure Report
