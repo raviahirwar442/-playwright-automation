@@ -1,26 +1,50 @@
-name: Basic Playwright Test
+name: Nightly Playwright Tests
 
 on:
+  schedule:
+    - cron: '0 6 * * *'
   workflow_dispatch:
 
 jobs:
   test:
+    timeout-minutes: 60
     runs-on: ubuntu-latest
+
+    env:
+
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: 20
+          cache: npm
 
-      - name: Install deps
-        run: npm install
+      - name: Install dependencies
+        run: npm ci --omit=optional
 
-      - name: Install browsers
+      - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
       - name: Run tests
         run: npx playwright test
+
+      - name: Upload Playwright report
+        uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: nightly-playwright-report
+          path: playwright-report/
+          retention-days: 30
+
+      - name: Upload Allure results
+        uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: nightly-allure-results
+          path: allure-results/
+          retention-days: 30

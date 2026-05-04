@@ -1,12 +1,11 @@
-import { Locator } from '@playwright/test';
+import { Locator, type LocatorClickOptions, type LocatorFillOptions } from '@playwright/test';
 
-//const ENABLE_HIGHLIGHT = import.meta.env.VITE_HIGHLIGHT === 'true';
-const ENABLE_HIGHLIGHT = true;
+const ENABLE_HIGHLIGHT = process.env.HIGHLIGHT === 'true';
 
 async function highlight(locator: Locator) {
   if (!ENABLE_HIGHLIGHT) return;
 
-  await locator.evaluate((el) => {
+  await locator.evaluate((el: HTMLElement) => {
     const original = el.getAttribute('style') || '';
 
     el.setAttribute(
@@ -21,12 +20,14 @@ async function highlight(locator: Locator) {
   });
 }
 
-export async function click(locator: Locator) {
+export async function click(locator: Locator, options?: LocatorClickOptions) {
+  await locator.waitFor({ state: 'visible' });
   await highlight(locator);
-  await locator.click();
+  await locator.click(options);
 }
 
-export async function fill(locator: Locator, value: string) {
+export async function fill(locator: Locator, value: string, options?: LocatorFillOptions) {
+  await locator.waitFor({ state: 'visible' });
   await highlight(locator);
-  await locator.fill(value);
+  await locator.fill(value, options);
 }

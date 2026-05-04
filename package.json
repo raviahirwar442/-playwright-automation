@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:highlight": "HIGHLIGHT=true playwright test",
+    "report": "playwright show-report"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -16,8 +21,11 @@
   "directories": {
     "test": "tests"
   },
+
+  "optionalDependencies": {
+  "fsevents": "*"
+},
   "dependencies": {
-    "fsevents": "^2.3.2",
     "playwright": "^1.59.1",
     "playwright-core": "^1.59.1",
     "undici-types": "^7.19.2"
