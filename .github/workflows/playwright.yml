@@ -58,11 +58,11 @@ jobs:
         with:
           server_address: smtp.gmail.com
           server_port: 465
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
+          username: ${{ secrets.RaviAhiEmail }}
+          password: ${{ secrets.EmailPassword }}
           subject: "Playwright Test Report"
-          to: your-dl@example.com
-          from: your-email@gmail.com
+          to: ravi.ahirwar442@gmail.com
+          from: ravi.ahi31@gmail.com
           secure: true
           body: |
             Playwright test execution completed.
