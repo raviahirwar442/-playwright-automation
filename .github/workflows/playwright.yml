@@ -61,7 +61,7 @@ jobs:
           username: ${{ secrets.RAVIAHIEMAIL }}
           password: ${{ secrets.EMAILPASSWORD }}
           subject: "Playwright Test Report"
-          to: ravi.ahirwar442@gmail.com
+          to: QA-Team
           from: ravi.ahi31@gmail.com
           secure: true
           body: |
