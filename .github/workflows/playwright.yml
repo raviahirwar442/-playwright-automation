@@ -58,8 +58,8 @@ jobs:
         with:
           server_address: smtp.gmail.com
           server_port: 465
-          username: ${{ secrets.RaviAhiEmail }}
-          password: ${{ secrets.EmailPassword }}
+          username: ${{ secrets.RAVIAHIEMAIL }}
+          password: ${{ secrets.EMAILPASSWORD }}
           subject: "Playwright Test Report"
           to: ravi.ahirwar442@gmail.com
           from: ravi.ahi31@gmail.com
