@@ -1,6 +1,6 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
 "","4213","test","","2026-05-01","passed","2026-05-01","","example.spec.ts","",""
-"","30728","user can login successfully","","2026-05-01","broken","2026-05-01","","login.spec.ts","",""
 "","253","user can login successfully","","2026-05-01","failed","2026-05-01","","tests/login.spec.ts","",""
+"","30728","user can login successfully","","2026-05-01","broken","2026-05-01","","login.spec.ts","",""
+"","1123","E2E: login → add to cart → checkout","","2026-05-05","passed","2026-05-05","","saucedemo.spec.ts","",""
 "","2784","test","","2026-05-01","passed","2026-05-01","","tests/example.spec.ts","",""
-"","1041","E2E: login → add to cart → checkout","","2026-05-05","passed","2026-05-05","","saucedemo.spec.ts","",""
