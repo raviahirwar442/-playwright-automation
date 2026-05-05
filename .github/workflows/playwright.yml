@@ -4,8 +4,8 @@ on:
   push:
   pull_request:
   workflow_dispatch:
-  schedule:
-    - cron: '0 7 * * *'   # 2 AM Toronto time
+  #schedule:
+ #   - cron: '0 7 * * *'   # 2 AM Toronto time
 
 jobs:
   test:
@@ -61,11 +61,11 @@ jobs:
         with:
           server_address: smtp.gmail.com
           server_port: 465
-          username: ${{ secrets.RAVIAHIEMAIL }}
+          username: ${{ secrets.EMAILUSERNAME }}
           password: ${{ secrets.EMAILPASSWORD }}
           subject: "Playwright Test Report"
           to: qa-teamahirwar@googlegroups.com
-          from: ravi.ahi31@gmail.com
+          from: ${{ secrets.EMAILUSERNAME }}
           secure: true
           body: |
             Playwright test execution completed.
